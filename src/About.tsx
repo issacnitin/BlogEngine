@@ -4,9 +4,10 @@ import './About.css';
 class About extends React.Component <{}, { posts: string[]}>{
 
     public render() {
+
         let about = "Nitin Issac Joy, 25\nnitin.i.joy@gmail.com".split('\n').map((item, i) => <p key={i}>{item}</p>);;
         return (
-            <div>
+            <div className='About'>
                 {about}
             </div>
         );
