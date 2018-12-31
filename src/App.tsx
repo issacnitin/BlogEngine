@@ -1,6 +1,7 @@
 import * as React from 'react';
 import './App.css';
 import * as Parser from './Utilities/Parser';
+import About from './About';
 
 class App extends React.Component <{}, { posts: string[]}>{
 
@@ -39,8 +40,11 @@ class App extends React.Component <{}, { posts: string[]}>{
       renderItem.push(<div className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
     }
     return (
-      <div>
-        {renderItem}
+      <div className='rowC'>
+        <About/>
+        <div className='cancelRowC'>
+          {renderItem}
+        </div>
       </div>
     );
   }
