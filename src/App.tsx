@@ -11,25 +11,23 @@ class App extends React.Component <{}, { posts: string[]}>{
     this.state = { posts: [] };
 
     const thisObject: any  = this;
-    fetch(process.env.PUBLIC_URL + "/posts/firstpost").then((response: Response) => {
-      (response.body as ReadableStream).getReader().read().then((content) => {
-        var encodedString = Parser.parseBlog(String.fromCharCode.apply(null, content.value));
-        var posts = this.state.posts;
-        posts.push(encodedString);
-        thisObject.setState({
-          posts: posts
-        });
-      });
-    });
 
-    fetch(process.env.PUBLIC_URL + "/posts/secondpost").then((response: Response) => {
+    fetch(process.env.PUBLIC_URL + "/posts/postorder").then((response: Response) => {
       (response.body as ReadableStream).getReader().read().then((content) => {
-        var encodedString = Parser.parseBlog(String.fromCharCode.apply(null, content.value));
-        var posts = this.state.posts;
-        posts.push(encodedString);
-        thisObject.setState({
-          posts: posts
-        });
+        var encodedString = String.fromCharCode.apply(null, content.value).split('\n');
+        for(var api of encodedString) {
+          // TODO: Batch the calls
+          fetch(process.env.PUBLIC_URL + "/posts/" + api).then((response: Response) => {
+            (response.body as ReadableStream).getReader().read().then((content) => {
+              var encodedString = Parser.parseBlog(String.fromCharCode.apply(null, content.value));
+              var posts = this.state.posts;
+              posts.push(encodedString);
+              thisObject.setState({
+                posts: posts
+              });
+            });
+          });
+        }
       });
     });
   }
