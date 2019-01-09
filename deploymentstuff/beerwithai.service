@@ -1,0 +1,14 @@
+[Unit]
+Description=Beer With AI
+
+[Service]
+ExecStart=/home/nitin_i_joy/BlogEngine/deploymentstuff/beerwithai.js
+Restart=always
+User=root
+Group=sudo
+Environment=PATH=/usr/bin:/usr/local/bin
+Environment=NODE_ENV=production
+WorkingDirectory=/home/nitin_i_joy/BlogEngine/build/
+
+[Install]
+WantedBy=multi-user.target
