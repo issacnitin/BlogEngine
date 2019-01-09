@@ -12,9 +12,9 @@ class App extends React.Component <{}, { posts: string[]}>{
     fetch(process.env.PUBLIC_URL + "/posts/postorder").then((response: Response) => {
       (response.body as ReadableStream).getReader().read().then((content) => {
         var encodedString = String.fromCharCode.apply(null, content.value).split('\n');
+        var batchApi = [];
         for(var api of encodedString) {
           // TODO: Batch the calls
-          var batchApi = [];
           batchApi.push(process.env.PUBLIC_URL + "/posts/" + api);
         }
         Batch.Get(batchApi)
