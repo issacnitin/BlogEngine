@@ -1,5 +1,5 @@
 <h1>Architecture Independent Multi-Kernel Operating Systems</h1>
-<p>Linux, Windows, OS/2, Google Fuschia.. the list is endless. All of them are operating system kernels, the part that interacts directly with hardware.. except the hardware is same. So why exactly different Kernels?</p>
+<p>Linux, Windows, OS/2, Google Fuschia.. the list is endless. The operating systems, the part of it that interacts directly with hardware.. except the hardware is same. So why exactly different Kernels?</p>
 <p>I'm imagining a line of operating systems which can replace the kernel dependency.. one that can support running applications build for any OS. That'd be a killer OS, right? Maybe not, no, not for scientific and research, but definitely for normal non-geek users.
 Everyone ends up learning different features of windows, and if they're asked to or shown to Mac OS/Ubuntu, they go dumbs. Let's solve that right here.
 By building a middleware between OS kernels and hardware, we've achieved just what we need - removing the kernel dependency for OS. And hey, it's already built! The hypervisors! </p>
