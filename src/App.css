@@ -28,6 +28,11 @@
   to { transform: rotate(360deg); }
 }
 
-.rowC{display:flex; flex-direction:row;}
+.rowC{display:flex; flex-direction:row; align-self: center;}
 
-.cancelRowC{display:block; margin: auto;}
+.cancelRowC{display:block; align-content: center; margin: auto;}
+
+.col-centered{
+  float: none;
+  margin: 0 auto;
+}

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import './App.css';
-import About from './About';
 import Batch from './Utilities/Batch';
 
 class App extends React.Component <{}, { posts: string[]}>{
@@ -33,9 +32,8 @@ class App extends React.Component <{}, { posts: string[]}>{
       renderItem.push(<div key={item} className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
     }
     return (
-      <div className='rowC'>
-        <About/>
-        <div className='cancelRowC'>
+      <div className="col-lg-1 col-centered">
+        <div style={{marginLeft: "16%", marginRight: "16%"}}>
           {renderItem}
         </div>
       </div>
