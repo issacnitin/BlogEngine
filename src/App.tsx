@@ -30,6 +30,7 @@ class App extends React.Component <{}, { posts: string[]}>{
     var renderItem : any[] = [];
     for(var item in this.state.posts){
       renderItem.push(<div key={item} className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
+      renderItem.push(<br />)
     }
     return (
       <div className="col-lg-1 col-centered">

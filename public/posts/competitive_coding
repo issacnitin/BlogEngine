@@ -1,0 +1,24 @@
+<h1> Is competitive coding really necessary? </h1>
+
+<p> Short Answer: Yes. You're hired for the unpredictable future. </p>
+<p> Long Answer: <br />While competitive coding skills are not directly used in most programming job,
+it is a very cruicial skill for a company to hire, for two reasons:
+</p>
+<p>
+<b>Innovation</b> - All major innovations that'd happen in the tech business involves a drastically improved algorithm, not just a good product idea.
+Many people can ideate and build a product, it takes algorithmic rigourousness to build it to meet the performance required, and make it good. You can build a new Search Engine, an Uber, another Windows,
+but can you build a Search Engine which can handle a million request every second, and retrieve the best result for the query from petabytes of data, using a 4GB RAM and 1Gbps network connection? Now this particular problem is already solved by Google,
+but if you're being hired, you're hired future-proof. And so you'd need to have the ability to solve similar problems, even though you might never come across them.
+</p>
+<p>
+<b>Easier judgement</b> - Competitive coding is not something that can be learned by reading books, but it is something that can only be improved upon 
+by rigorous practice. Not all people are born same, and some, hence, would need more practice than others. And so, if you're good at competitive coding,
+you're either hardworking or super smart. Both of which are good qualities one would expect from a hire. 
+</p>
+<p>
+Yes, it's true that you might not apply the algorithm you've developed at job. Because no business would want to bet on their product's quality with an improved algorithm. 
+And so they'd stick to industry standard algorithms for most part. Especially for the cryptographic algorithms.
+But if it's a good one, you'd need to use it some time in future, when the business has grown enough to accomodate the need for your algorithm.  
+</p><p>
+So you're loosing your skills writing JSON's yes? Go build something in your freetime.
+</p>
