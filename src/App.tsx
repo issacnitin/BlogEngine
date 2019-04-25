@@ -19,13 +19,15 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
           }
           Batch.Get(batchApi)
             .then((posts: any) => {
-                this.setState({
-                  posts: posts
-                });
                 var headings = []
                 for (var post of posts) {
                   headings.push(RegEx.getMatch(post as string, '<h1>*</h1>'));
                 }
+                this.setState({
+                  posts: posts,
+                  postHeadings: headings
+                });
+                
             });
         });
     });
@@ -43,16 +45,18 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     }
 
     var scrollRenderItems: any[] = [];
+    scrollRenderItems.push(<div key='cont'>Contents</div>)
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item} onClick={this.scrollTo.bind(this)}>{this.state.postHeadings[item]}</div>)
+      scrollRenderItems.push(<div key={item + 'c'} onClick={this.scrollTo.bind(this)}>{this.state.postHeadings[item]}</div>)
+      scrollRenderItems.push(<br key={item + 'd'} />)
     }
 
     return (
-      <div className="col-lg-1 col-centered">
-        <div>
+      <div className="rowC">
+        <div style={{width:"100%"}}>
           {scrollRenderItems}
         </div>
-        <div style={{marginLeft: "16%", marginRight: "16%"}}>
+        <div className="cancelRowC" style={{marginLeft: "8%", marginRight: "20%"}}>
           {renderItem}
         </div>
       </div>

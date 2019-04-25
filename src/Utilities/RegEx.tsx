@@ -4,7 +4,7 @@ export class RegEx {
     static getMatch = (input: string, regex: string): string => {
         var s1: string = regex.substr(0, regex.search('\\*'));
         var s2: string = regex.substr(regex.search('\\*') + 1, regex.length);
-        var r1 = input.substr(input.search(s1) + s1.length, input.search(s2) - s2.length);
+        var r1 = input.substr(input.search(s1) + s1.length, input.search(s2) - s2.length + 1);
         return r1
     }
 }
