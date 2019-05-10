@@ -33,21 +33,23 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     });
   }
 
-  scrollTo = () => {
-
+  scrollTo = (item: any) => {
+    console.log(item)
+    window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
   }
 
   public render() {
     var renderItem : any[] = [];
     for(var item in this.state.posts){
-      renderItem.push(<div key={item + 'a'} className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
+      var refs: React.RefObject<HTMLDivElement> = React.createRef();
+      renderItem.push(<div key={item + 'a'} ref={refs} className="App" dangerouslySetInnerHTML={{__html: this.state.posts[item]}}></div>)
       renderItem.push(<br key={item + 'b'}/>)
     }
 
     var scrollRenderItems: any[] = [];
     scrollRenderItems.push(<div key='cont'>Contents</div>)
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item + 'c'} onClick={this.scrollTo.bind(this)}>{this.state.postHeadings[item]}</div>)
+      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}>{this.state.postHeadings[item]}</div>)
       scrollRenderItems.push(<br key={item + 'd'} />)
     }
 
