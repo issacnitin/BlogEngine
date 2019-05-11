@@ -49,7 +49,7 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     var scrollRenderItems: any[] = [];
     scrollRenderItems.push(<div key='cont'>Contents</div>)
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}>{this.state.postHeadings[item]}</div>)
+      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#">{this.state.postHeadings[item]}</a></div>)
       scrollRenderItems.push(<br key={item + 'd'} />)
     }
 
