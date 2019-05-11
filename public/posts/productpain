@@ -5,10 +5,10 @@ Maybe neither of them served all the functions you desired, and maybe you though
 
 
 <p>And how many times have you ended up building something ground up from low level assembly for satisfying the inter-operability, juding the cost of writing the entire function for one of the library to be more painful? Or maybe
-it would put you on a bad spot infront of management, if you tell them you made a bad technical judgement</p>
+it would put you on a bad spot infront of management, if you tell them you made a bad technical judgement.</p>
 
-<p>This is the story of product pain. The story of developers who went to hell and back for their product, but being never rewarded for it, because there's no visible changes to the product that the management would smother upon.</p>
-<p>If you ever had to build an OS ground up, if you ever wanted to develop a cross-platform app in React Native/Unity/Unreal or any other Xamarin? platform,
+<p>This is the story of product pain. The story of developers who went to hell and back for their product, but being never rewarded for it, because there's no visible changes to the product that the management could smother upon.</p>
+<p>If you ever had to build an OS ground up, if you ever wanted to develop a cross-platform app in React Native/Unity/Unreal/Xamarin or any other "cross-platform" tool,
 if you ever had to consume with a gRPC API when your client doesn't support gRPC just yet, or if you developed an entire game for mobile, only to find it's better suited for a PC, 
 
 I feel you, brother. Thank you, for your brave effort in solving it despite the ego of designers of whatever technology you worked on</p>
