@@ -47,18 +47,20 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     }
 
     var scrollRenderItems: any[] = [];
-    scrollRenderItems.push(<div key='cont'>Contents</div>)
+    scrollRenderItems.push(<div key='cont' style={{fontSize:22}}>Contents</div>)
+    var i = 1;
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#">{this.state.postHeadings[item]}</a></div>)
+      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}>{i + ". "}<a href="#" style={{outline:'none'}}>{this.state.postHeadings[item]}</a></div>)
       scrollRenderItems.push(<br key={item + 'd'} />)
+      i++;
     }
 
     return (
       <div className="rowC">
-        <div style={{width:"100%"}}>
+        <div style={{width:"100%", backgroundColor:"#9ACD3288", position:'sticky', top:0}}>
           {scrollRenderItems}
         </div>
-        <div className="cancelRowC" style={{marginLeft: "8%", marginRight: "20%"}}>
+        <div className="cancelRowC" style={{paddingLeft: "8%", paddingRight: "12%", backgroundColor:"#ffff0088"}}>
           {renderItem}
         </div>
       </div>
