@@ -23,7 +23,7 @@ jobs:
       uses: garygrossgarten/github-action-scp@release
       with:
         local: build/
-        remote: ~/beerwithai.com
+        remote: beerwithai.com
         host: 70.37.72.51
         username: issacnitin
         privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
