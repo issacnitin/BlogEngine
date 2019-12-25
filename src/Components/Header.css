@@ -1,0 +1,13 @@
+.Header {
+    display: flex; 
+    flex-direction: row;
+    justify-content: flex-end;
+    background-color: #606060;
+}
+
+.HeaderItems {
+    font-size: large;
+    padding: 20px;
+    border-radius: 5px;
+    margin: 2px;
+}

@@ -2,6 +2,8 @@ import * as React from 'react';
 import './App.css';
 import Batch from './Utilities/Batch';
 import RegEx from './Utilities/RegEx';
+import About from './Components/About';
+import Header from './Components/Header';
 
 class App extends React.Component <{}, { posts: string[], postHeadings: string[] }>{
 
@@ -34,7 +36,6 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
   }
 
   scrollTo = (item: any) => {
-    console.log(item)
     window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
   }
 
@@ -47,21 +48,23 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     }
 
     var scrollRenderItems: any[] = [];
-    scrollRenderItems.push(<div key='cont' style={{fontSize:22}}>Contents</div>)
-    var i = 1;
+    scrollRenderItems.push(<br />);
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}>{i + ". "}<a href="#" style={{outline:'none'}}>{this.state.postHeadings[item]}</a></div>)
-      scrollRenderItems.push(<br key={item + 'd'} />)
-      i++;
+      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#" style={{outline:'none'}}>{this.state.postHeadings[item]}</a></div>)
+      scrollRenderItems.push(<br key={item + 'd'} />);
     }
 
     return (
-      <div className="rowC">
-        <div style={{width:"100%", backgroundColor:"#9ACD3288", position:'sticky', top:0}}>
-          {scrollRenderItems}
-        </div>
-        <div className="cancelRowC" style={{paddingLeft: "8%", paddingRight: "12%", backgroundColor:"#ffff0088"}}>
-          {renderItem}
+      <div>
+          <Header />
+        <div className="rowC">
+          <div style={{width:"100%", backgroundColor:"#A0A0A0", position:'sticky', top:0}}>
+            <About/>
+            {scrollRenderItems}
+          </div>
+          <div className="cancelRowC" style={{paddingLeft: "8%", paddingRight: "12%", backgroundColor:"#F0F0F0"}}>
+            {renderItem}
+          </div>
         </div>
       </div>
     );
