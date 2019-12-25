@@ -18,13 +18,13 @@ jobs:
       run: npm run build
     
     - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: build/
-          remote: ~/beerwithai.com
-          host: 70.37.72.51
-          username: issacnitin
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+      uses: garygrossgarten/github-action-scp@release
+      with:
+        local: build/
+        remote: ~/beerwithai.com
+        host: 70.37.72.51
+        username: issacnitin
+        privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
