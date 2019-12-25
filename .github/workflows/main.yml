@@ -32,6 +32,7 @@ jobs:
           cd /home/issacnitin/
           rm -rf BlogEngine/
           git clone https://github.com/issacnitin/BlogEngine.git
+          cd BlogEngine/
           npm install
           npm run build
           sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
