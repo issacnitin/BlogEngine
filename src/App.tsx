@@ -3,14 +3,14 @@ import './App.css';
 import Batch from './Utilities/Batch';
 import RegEx from './Utilities/RegEx';
 import About from './Components/About';
-import Header from './Components/Header';
+import Header, { Pages } from './Components/Header';
 
-class App extends React.Component <{}, { posts: string[], postHeadings: string[] }>{
+class App extends React.Component <{}, { posts: string[], postHeadings: string[], page: Pages }>{
 
   // let blogposts: { [key:string]:string } = {} as { [key:string]:string };
   constructor(props: any) {
     super(props);
-    this.state = { posts: [], postHeadings: [] };
+    this.state = { posts: [], postHeadings: [], page: Pages.Code };
     fetch(process.env.PUBLIC_URL + "/posts/postorder").then((response: Response) => {
         (response.body as ReadableStream).getReader().read().then((content) => {
           var encodedString = String.fromCharCode.apply(null, content.value).split('\n');
@@ -39,6 +39,12 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
   }
 
+  onClickToPage = (page: Pages) => {
+    this.setState({
+      page: page
+    });
+  }
+
   public render() {
     var renderItem : any[] = [];
     for(var item in this.state.posts){
@@ -50,13 +56,13 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     var scrollRenderItems: any[] = [];
     scrollRenderItems.push(<br />);
     for(var item in this.state.postHeadings) {
-      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#" style={{outline:'none'}}>{this.state.postHeadings[item]}</a></div>)
+      scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#" style={{outline:'none', color: '#0F0F0F'}}>{this.state.postHeadings[item]}</a></div>)
       scrollRenderItems.push(<br key={item + 'd'} />);
     }
 
     return (
       <div>
-          <Header />
+        <Header onClickToPage={this.onClickToPage}/>
         <div className="rowC">
           <div style={{width:"100%", backgroundColor:"#A0A0A0", position:'sticky', top:0}}>
             <About/>
