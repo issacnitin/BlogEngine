@@ -15,7 +15,9 @@ jobs:
         node-version: '10.x'
 
     - name: "Build package"
-      run: npm run build
+      run: |
+        npm install
+        npm run build
     
     - name: Copy folder content recursively to remote
       uses: garygrossgarten/github-action-scp@release
