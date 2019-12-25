@@ -26,7 +26,7 @@ jobs:
         username: issacnitin
         port: 22
         key: ${{ secrets.SSH_PRIVATE_KEY }}
-        source: "build/*"
+        source: "build/*, src/beerwithai.com.conf"
         target: "beerwithai.com/"
         overwrite: true
         strip_components: 1
@@ -38,12 +38,11 @@ jobs:
         username: issacnitin
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd ~
-          sudo cp ./beerwithai.com/src/beerwithai.com.conf /etc/nginx/sites-available/
+          sudo cp beerwithai.com/beerwithai.com.conf /etc/nginx/sites-available/
           if test -f "/etc/nginx/sites-enabled/default"; then
               sudo rm /etc/nginx/sites-enabled/default
           fi
-          if [ -L "/etc/nginx/sites-enabled/beerwithai.com.conf" ]; then
+          if [ -e "/etc/nginx/sites-enabled/beerwithai.com.conf" ]; then
               sudo rm /etc/nginx/sites-enabled/beerwithai.com.conf
           fi
           sudo ln -s /etc/nginx/sites-available/beerwithai.com.conf /etc/nginx/sites-enabled/
