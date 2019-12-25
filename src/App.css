@@ -36,6 +36,11 @@
   margin: 100;
 }
 
+.About {
+  text-align: center;
+  font-family: 'Pacifico';
+}
+
 .col-centered{
   float: none;
   margin: 0 auto;

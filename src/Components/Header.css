@@ -11,3 +11,7 @@
     border-radius: 5px;
     margin: 2px;
 }
+
+.HeaderItems:hover {
+    opacity: 0.7;
+}

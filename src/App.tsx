@@ -36,7 +36,11 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
   }
 
   scrollTo = (item: any) => {
-    window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
+    this.setState({
+      page: Pages.Code
+    }, () => {
+      window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
+    });
   }
 
   onClickToPage = (page: Pages) => {
@@ -59,21 +63,40 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
       scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#" style={{outline:'none', color: '#0F0F0F'}}>{this.state.postHeadings[item]}</a></div>)
       scrollRenderItems.push(<br key={item + 'd'} />);
     }
+    let about = "Nitin Issac Joy\n Software Engineer at Microsoft\n \
+                nitin.i.joy@gmail.com\n".split('\n').map((item, i) => <p key={i}>{item}</p>);
 
-    return (
-      <div>
-        <Header onClickToPage={this.onClickToPage}/>
-        <div className="rowC">
-          <div style={{width:"100%", backgroundColor:"#A0A0A0", position:'sticky', top:0}}>
-            <About/>
-            {scrollRenderItems}
-          </div>
-          <div className="cancelRowC" style={{paddingLeft: "8%", paddingRight: "12%", backgroundColor:"#F0F0F0"}}>
-            {renderItem}
+    let customJSX: JSX.Element;
+    
+    switch(this.state.page) {
+      case Pages.Code:
+        customJSX = 
+        <div className="cancelRowC" style={{paddingLeft: "8%", paddingRight: "12%", backgroundColor:"#F0F0F0"}}>
+              {renderItem}
+        </div>;
+        break;
+      case Pages.About:
+        customJSX = <About />;
+        break;
+      default:
+        customJSX = <div />;
+        break;
+    }
+    
+      return (
+        <div>
+          <Header onClickToPage={this.onClickToPage} page={this.state.page}/>
+          <div className="rowC">
+            <div style={{width:"100%", backgroundColor:"#A0A0A0", position:'sticky', top:0}}>
+              <div className="About">
+                {about}
+              </div>
+              {scrollRenderItems}
+            </div>
+            {customJSX}
           </div>
         </div>
-      </div>
-    );
+      );   
   }
 }
 
