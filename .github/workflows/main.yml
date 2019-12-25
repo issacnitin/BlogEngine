@@ -43,7 +43,7 @@ jobs:
           if test -f "/etc/nginx/sites-enabled/default"; then
               sudo rm /etc/nginx/sites-enabled/default
           fi
-          if test -f "/etc/nginx/sites-enabled/beerwithai.com.conf"; then
+          if [ -L "/etc/nginx/sites-enabled/beerwithai.com.conf" ]; then
               sudo rm /etc/nginx/sites-enabled/beerwithai.com.conf
           fi
           sudo ln -s /etc/nginx/sites-available/beerwithai.com.conf /etc/nginx/sites-enabled/
