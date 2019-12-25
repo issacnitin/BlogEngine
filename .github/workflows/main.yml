@@ -30,9 +30,14 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           cd /home/issacnitin/
-          rm -rf BlogEngine/
-          git clone https://github.com/issacnitin/BlogEngine.git
-          cd BlogEngine/
+          if [ -d "BlogEngine/" ] 
+          then
+              cd BlogEngine/
+              git pull origin master
+          else
+              git clone https://github.com/issacnitin/BlogEngine.git
+              cd BlogEngine/
+          fi
           npm install
           npm run build
           sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
