@@ -10,17 +10,21 @@ jobs:
     steps:
     - uses: actions/checkout@v1
         
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
+    - uses: actions/setup-node@v1
       with:
-        host: 70.37.72.51
-        username: issacnitin
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          sudo apt install curl
-          sudo apt-get install gcc g++ make
-          curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-          sudo apt-get install -y nodejs
+        node-version: '10.x'
+
+    - name: "Build package"
+      run: npm run build
+    
+    - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: build/
+          remote: ~/beerwithai.com
+          host: 70.37.72.51
+          username: issacnitin
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
@@ -29,18 +33,8 @@ jobs:
         username: issacnitin
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          cd /home/issacnitin/
-          if [ -d "BlogEngine/" ] 
-          then
-              cd BlogEngine/
-              git pull origin master
-          else
-              git clone https://github.com/issacnitin/BlogEngine.git
-              cd BlogEngine/
-          fi
-          npm install
-          npm run build
-          sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
+          cd ~
+          sudo cp ./beerwithai.com/src/beerwithai.com.conf /etc/nginx/sites-available/
           if test -f "/etc/nginx/sites-enabled/default"; then
               sudo rm /etc/nginx/sites-enabled/default
           fi
