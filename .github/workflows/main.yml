@@ -1,4 +1,4 @@
-name: CI
+name: Release
 
 on: [push]
 
@@ -9,8 +9,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    
-    - name: Run a multi-line script
-      run: |
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > beerwithai.key
-        ssh -i beerwithai.key issacnitin@70.37.72.51
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@master
+      with:
+        host: 70.37.72.51
+        username: issacnitin
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          whoami
+          cd /home/issacnitin/
+          rm -rf BlogEngine/
+          git clone https://github.com/issacnitin/BlogEngine.git
+          cd BlogEngine
+          npm install
+          npm run build
+          sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
+          sudo nginx restart
