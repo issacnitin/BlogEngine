@@ -9,6 +9,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
+    
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
