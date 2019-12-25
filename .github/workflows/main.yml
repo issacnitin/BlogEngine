@@ -19,14 +19,16 @@ jobs:
         npm install
         npm run build
     
-    - name: Copy folder content recursively to remote
-      uses: garygrossgarten/github-action-scp@release
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@master
       with:
-        local: build/
-        remote: beerwithai.com
         host: 70.37.72.51
         username: issacnitin
-        privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: 22
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        source: "build/*"
+        target: "beerwithai.com/"
+        overwrite: true
 
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
