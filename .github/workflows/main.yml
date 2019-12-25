@@ -9,10 +9,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
         
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
@@ -26,6 +22,7 @@ jobs:
           rm -rf BlogEngine/
           git clone https://github.com/issacnitin/BlogEngine.git
           cd BlogEngine
+          sudo apt-get install node
           npm install
           npm run build
           sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
