@@ -41,6 +41,6 @@ jobs:
           npm install
           npm run build
           sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
-          sudo ln -s /etc/nginx/sites-available/example.com.conf /etc/nginx/sites-enabled/
+          sudo ln -s /etc/nginx/sites-available/beerwithai.com.conf /etc/nginx/sites-enabled/
           sudo systemctl restart nginx
           sudo nginx -t
