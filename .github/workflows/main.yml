@@ -22,7 +22,10 @@ jobs:
           rm -rf BlogEngine/
           git clone https://github.com/issacnitin/BlogEngine.git
           cd BlogEngine
-          sudo apt-get install node
+          
+          sudo apt install curl
+          curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+
           npm install
           npm run build
           sudo cp ./src/beerwithai.com.conf /etc/nginx/sites-available/
