@@ -12,5 +12,5 @@ jobs:
     
     - name: Run a multi-line script
       run: |
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/beerwithai
-        scp ./src/beerwithai.com.conf issacnitin@70.37.72.51:/etc/nginx/sites-available/
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > beerwithai.key
+        scp -i beerwithai.key ./src/beerwithai.com.conf issacnitin@70.37.72.51:/etc/nginx/sites-available/
