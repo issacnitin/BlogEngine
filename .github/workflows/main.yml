@@ -29,6 +29,7 @@ jobs:
         source: "build/*"
         target: "beerwithai.com/"
         overwrite: true
+        strip_components: 1
 
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
