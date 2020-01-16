@@ -3,7 +3,7 @@ Running the Server
 Nearly every Linux distro comes with systemd, which means forever, monit, etc are no longer necessary - your OS already handles these tasks.
 
 Make a myapp.service file (replacing 'myapp' with your app's name, obviously):
-
+after
 [Unit]
 Description=My app
 
