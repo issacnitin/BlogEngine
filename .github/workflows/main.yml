@@ -22,7 +22,7 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@master
       with:
-        host: 70.37.72.51
+        host: 104.44.140.6
         username: issacnitin
         port: 22
         key: ${{ secrets.SSH_PRIVATE_KEY }}
@@ -34,7 +34,7 @@ jobs:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
-        host: 70.37.72.51
+        host: 104.44.140.6
         username: issacnitin
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
