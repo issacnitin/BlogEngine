@@ -31,4 +31,4 @@ See logs with journalctl -u myapp
   
 This is taken from How we deploy node apps on Linux, 2018 edition, which also includes commands to generate an AWS/DigitalOcean/Azure CloudConfig to build Linux/node servers (including the .service file).
 
-Original Post: https://stackoverflow.com/questions/4018154/how-do-i-run-a-node-js-app-as-a-background-service 
+Original Post: https://stackoverflow.com/questions/4018154/how-do-i-run-a-node-js-app-as-a-background-service  
