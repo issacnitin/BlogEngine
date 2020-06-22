@@ -14,13 +14,14 @@ export class NewPost extends React.Component<IProps, IState> {
     }
 
     handleOnSubmit = () => {
-
+        
     }
 
     render() {
         return (
             <form onSubmit={this.handleOnSubmit}>
-                <textarea />
+                <textarea style={{width: 500, height: 500}}/>
+                <br />
                 <input type="submit" value="Submit" />
             </form>
         )

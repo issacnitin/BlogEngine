@@ -17,8 +17,8 @@ WebFont.load({
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
-      <Route path="/" component={App} />
-      <Route path="/newpost" component={NewPost} />
+      <Route exact path="/" component={App}/>
+      <Route exact path='/newpost' component={NewPost}/>
     </Switch>
   </BrowserRouter>,
   document.getElementById('root') as HTMLElement

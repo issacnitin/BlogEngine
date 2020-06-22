@@ -32,21 +32,3 @@ jobs:
         target: "beerwithai.com/"
         overwrite: true
         strip_components: 1
-
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@master
-      with:
-        host: 104.44.140.6
-        username: issacnitin
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        script: |
-          sudo cp beerwithai.com/beerwithai.com.conf /etc/nginx/sites-available/
-          if test -f "/etc/nginx/sites-enabled/default"; then
-              sudo rm /etc/nginx/sites-enabled/default
-          fi
-          if [ -e "/etc/nginx/sites-enabled/beerwithai.com.conf" ]; then
-              sudo rm /etc/nginx/sites-enabled/beerwithai.com.conf
-          fi
-          sudo ln -s /etc/nginx/sites-available/beerwithai.com.conf /etc/nginx/sites-enabled/
-          sudo systemctl restart nginx
-          sudo nginx -t
