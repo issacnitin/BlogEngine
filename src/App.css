@@ -1,5 +1,4 @@
 .App {
-  text-align: center;
   font-family: 'Roboto Slab';
 }
 
@@ -38,7 +37,14 @@
 
 .About {
   text-align: center;
-  font-family: 'Pacifico';
+  font-family: 'Source Sans Pro';
+}
+
+.AboutImage {
+  width: 200px;
+  height: 200px;
+  margin: 10px;
+  border-radius: 10px;
 }
 
 .col-centered{

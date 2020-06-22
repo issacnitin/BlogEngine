@@ -11,7 +11,6 @@ export default class About extends React.Component <{}, { posts: string[]}>{
         return (
             <div>
                 <div className='About'>
-                    ABCD
                 </div>
             </div>
         );

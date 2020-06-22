@@ -64,8 +64,7 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
       scrollRenderItems.push(<div key={item + 'c'} style={{margin: 10}} onClick={this.scrollTo.bind(this, renderItem[2*Number.parseInt(item)])}><a href="#" style={{outline:'none', color: '#0F0F0F'}}>{this.state.postHeadings[item]}</a></div>)
       scrollRenderItems.push(<br key={item + 'd'} />);
     }
-    let about = "Nitin Issac Joy\n Software Engineer at Microsoft\n \
-                nitin.i.joy@gmail.com\n".split('\n').map((item, i) => <p key={i}>{item}</p>);
+    let about = "Nitin Issac Joy\n Software Engineer at Microsoft Azure\n".split('\n').map((item, i) => <p key={i}>{item}</p>);
 
     let customJSX: JSX.Element;
     
@@ -90,6 +89,7 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
           <div className="rowC">
             <div style={{width:"100%", backgroundColor:"#A0A0A0", position:'sticky', top:0}}>
               <div className="About">
+                <img className="AboutImage" src={process.env.PUBLIC_URL + "/images/profile.jpg"}/>
                 {about}
               </div>
               {scrollRenderItems}
