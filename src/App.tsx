@@ -39,6 +39,7 @@ class App extends React.Component <{}, { posts: string[], postHeadings: string[]
     this.setState({
       page: Pages.Code
     }, () => {
+      console.log(item)
       window.scrollTo({top: item.ref.current.offsetTop, behavior: 'smooth'});
     });
   }
